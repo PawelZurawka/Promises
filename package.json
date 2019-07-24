@@ -11,7 +11,7 @@
     "init:files": "touch README.md index.html sass/style.scss js/script.js",
     "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
     "build": "npm-run-all build:*",
-    "build:babel": "babel js/*.js components/*.js -d compiled",
+    "build:babel": "babel js/*.js js/components/*.js -d compiled",
     "build:clean": "rimraf css/*.*",
     "build:sass": "node-sass --output-style compact -o css sass",
     "build:autoprefixer": "autoprefixer-cli css/style.css",
@@ -21,7 +21,7 @@
     "watch:autoprefixer": "onchange -d 100 css.style.css -- autoprefixer-cli -o css/style/prefixed.css css/style.css",
     "watch:browsersync": "browser-sync start --server --browser chrome --files components/*.js js/*.js css/*.css *html",
     "watch:sassprefixer": "onchange sass/*.scss -- npm-run-all build:sass build:autoprefixer",
-	"watch:babel": "babel js/script.js components/* --watch -d compiled"
+    "watch:babel": "babel js/script.js js/components/* --watch -d compiled"
   },
   "keywords": [],
   "author": "",
